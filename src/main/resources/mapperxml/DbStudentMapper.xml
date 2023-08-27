@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heihei.mapper.DbStudentMapper">
+  <resultMap id="BaseResultMap" type="com.heihei.domain.DbStudent">
+    <!--@mbg.generated-->
+    <!--@Table db_student-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
+    <result column="regit_time" jdbcType="TIMESTAMP" property="regitTime" />
+    <result column="audit_type" jdbcType="VARCHAR" property="auditType" />
+    <result column="stu_name" jdbcType="VARCHAR" property="stuName" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="school_room" jdbcType="VARCHAR" property="schoolRoom" />
+    <result column="class_room" jdbcType="VARCHAR" property="classRoom" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, login_name, login_password, regit_time, audit_type, stu_name, sex, school_room, 
+    class_room, phone, pic, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from db_student
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from db_student
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.heihei.domain.DbStudent">
+    <!--@mbg.generated-->
+    insert into db_student (id, login_name, login_password, 
+      regit_time, audit_type, stu_name, 
+      sex, school_room, class_room, 
+      phone, pic, remark
+      )
+    values (#{id,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{loginPassword,jdbcType=VARCHAR}, 
+      #{regitTime,jdbcType=TIMESTAMP}, #{auditType,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{schoolRoom,jdbcType=VARCHAR}, #{classRoom,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{remark,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.heihei.domain.DbStudent">
+    <!--@mbg.generated-->
+    insert into db_student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="loginPassword != null">
+        login_password,
+      </if>
+      <if test="regitTime != null">
+        regit_time,
+      </if>
+      <if test="auditType != null">
+        audit_type,
+      </if>
+      <if test="stuName != null">
+        stu_name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="schoolRoom != null">
+        school_room,
+      </if>
+      <if test="classRoom != null">
+        class_room,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null">
+        #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="regitTime != null">
+        #{regitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditType != null">
+        #{auditType,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolRoom != null">
+        #{schoolRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="classRoom != null">
+        #{classRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.heihei.domain.DbStudent">
+    <!--@mbg.generated-->
+    update db_student
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null">
+        login_password = #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="regitTime != null">
+        regit_time = #{regitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditType != null">
+        audit_type = #{auditType,jdbcType=VARCHAR},
+      </if>
+      <if test="stuName != null">
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolRoom != null">
+        school_room = #{schoolRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="classRoom != null">
+        class_room = #{classRoom,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.heihei.domain.DbStudent">
+    <!--@mbg.generated-->
+    update db_student
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_password = #{loginPassword,jdbcType=VARCHAR},
+      regit_time = #{regitTime,jdbcType=TIMESTAMP},
+      audit_type = #{auditType,jdbcType=VARCHAR},
+      stu_name = #{stuName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      school_room = #{schoolRoom,jdbcType=VARCHAR},
+      class_room = #{classRoom,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from db_student
+</select>
+
+
+</mapper>
